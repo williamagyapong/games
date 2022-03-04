@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Snake Game</title>
+    <style>
+        body{
+            background: #eee;
+
+        }
+        #snake{
+            /* width: 608px;
+            height: 608px;
+            position: relative; */
+            border: 1px solid #cccccc;
+            /* background-image: url(images/bg.jpg); */
+            background-color: rgb(40, 105, 105);
+            /* margin-left: 250px; */
+
+        }
+        #msg-board, #starter, #paused{
+            position: absolute;
+            left: 100px;
+            top: 200px;
+            width: 30%;
+            height: 100px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.9);
+            display: none;
+            border: 1px solid #663399;
+            /* margin-left: 700px; */
+        }
+        #starter {
+            display: block;
+            height: 180px;
+            
+        }
+        #buttons {
+            position: absolute;
+            bottom: 10px;
+            left: 250px;
+        }
+        .text{
+            line-height: 100px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            margin-left: 150px;
+        }
+        h2, h3{
+            text-align: center;
+        }
+        .head{
+            width: 32px;
+            height: 32px;
+            background: green;
+            outline: red;
+            position: absolute;
+            left: 288px;
+            top: 288px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="snake">
+        <div class="head"></div>
+    </div> -->
+    <!-- <img src="images/img1.png" alt=""> -->
+    <!-- <img src="images/Emoticons.ico" alt=""> -->
+    <div id="starter">
+        <h2>Welcome! Snake Hero!</h2>
+        <ul>
+            <li>Press any of the <strong>arrow keys</strong> to start game</li>
+            <li>Press the <strong>space bar</strong> to pause and press again to resume. </li>
+            <li>Use the <strong>Page Up</strong> and <strong>Page Down</strong> keys to control speed</li>
+        </ul>
+        <div id="buttons">
+                <button id="start">OK</button>
+        </div>
+    </div>
+
+    <div id="msg-board">
+        <div class="text">Game Over</div>
+        <div id="buttons">
+            <!-- <button id="play-again" class="btn">Play Again</button> -->
+        <button id="restart" class="btn">Replay</button>
+        </div>
+    </div>
+
+    <div id="paused">
+        <h2>Game paused</h2>
+        <h3>Press <strong>space</strong> key to resume game</h3>
+    </div>
+    <canvas id="snake" width="608" height="608"></canvas>
+
+    <!-- import snake js file -->
+    <script src="./snake.js"></script>
+
+</body>
+</html>
