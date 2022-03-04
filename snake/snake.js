@@ -2,8 +2,8 @@
 /*
  1. initialize snake with both head and a tail -done
  2. create game over animation
- 3. include levels
- 4. prevent food from being generated on snake
+ 3. include levels (done)
+ 4. prevent food from being generated on the snake
  5. Add game controls: pause, restart, end etc.-partially done
  6. Add a play again button
 */
@@ -99,6 +99,7 @@ snake[0] = {
 
  // generate food
 function generateFood(snakeArr) {
+    // no need to loop over snake coordinates
     foodPos = [];
     for(let i = 0; i<snakeArr.length; i++) {
             foodXPos = Math.floor(Math.random()*17+1)*box;
@@ -124,8 +125,6 @@ function generateFood(snakeArr) {
 // }
 
 let food = generateFood(snake);
-
-
 
 // set snake direction
 document.addEventListener('keydown', direction);
@@ -165,7 +164,10 @@ function direction(event) {
 function changeSpeed(token, newSpeed=null) {
     if(!gameOver) {
         clearInterval(game);  // clear old game instance
-    
+        
+        // please note that speed here is equivalent to the time required to 
+        // update the snake movement, so the lower the value the higer the speed. 
+
         //increase speed
         if(token == 'accelerate') {
             speed -= speedRate;
@@ -286,15 +288,15 @@ function reDraw() {
     writeText('Snake Hero', 6.5*box, 1*box, 'gray', '40px Changa one')
     
     //draw apple
-    ctx.drawImage(apple, 12*box, (vSpace-0.8)*box, 30,30);
+    ctx.drawImage(apple, 14.5*box, (vSpace-0.8)*box, 30,30);
     // draw score
-    writeText(score, 13.3*box, vSpace*box, 'white', fontSize+' Changa one');
+    writeText(score, 15.8*box, vSpace*box, 'white', fontSize+' Changa one');
 
     // draw game level
-    writeText('Level: '+level, 1.1*box, vSpace*box, 'white', fontSize+' Changa one');
+    writeText('Level: '+level, 2.5*box, vSpace*box, 'white', fontSize+' Changa one');
     // draw speed level
     speedLevel = Math.round(box/(speed/1000));
-    writeText('Speed: '+speedLevel, 5*box, vSpace*box, 'white', fontSize+' Changa one');
+    writeText('Speed: '+speedLevel, 7*box, vSpace*box, 'white', fontSize+' Changa one');
 
     // draw game developer details
     writeText('Developed by: William Agyapong || Version 1.0', 1.6*box, 18.6*box, 'white', '20px Changa one');
@@ -382,7 +384,6 @@ function move() {
 
 reDraw();  // call the function to draw on the canvas
  game = setInterval(move, speed);
- 
  
  document.addEventListener('keydown', function(event) {
 
