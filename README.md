@@ -1,5 +1,5 @@
 # games
-Time to have fun!
+All work and no play makes Jack a dull boy. It is time to break from the boredom and have fun! 
 
 Available games in this edition are:
 
